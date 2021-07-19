@@ -467,7 +467,7 @@ footer {
   background: var(--base-color);
 }
 
-footer .section {
+footer.section {
   padding: 4rem 0;
 }
 
@@ -486,8 +486,12 @@ footer i {
   color: var(--text-color-light);
 }
 
+footer .social {
+  grid-auto-flow: column;
+  width: fit-content;
+}
+
 footer .social a {
-  margin-right: 2rem;
   transition: 0.3s;
   display: inline-block;
 }
@@ -507,6 +511,8 @@ footer .social a:hover {
 
   padding: 0.5rem;
   clip-path: circle();
+  border: 1px solid white;
+  border-radius: 50%;
 
   font-size: 1.5rem;
   line-height: 0;
@@ -527,6 +533,7 @@ footer .social a:hover {
 /*========= MEDIA QUERIES =========*/
 /* extra large devices: 1200 > */
 @media (min-width: 1200px) {
+  /* reusable classes */
   .container {
     max-width: 1120px;
     margin-left: auto;
@@ -548,7 +555,8 @@ footer .social a:hover {
   .button {
     height: 3.125rem;
   }
-  /*navigation */
+
+  /* navigation */
   nav .menu {
     opacity: 1;
     visibility: visible;
@@ -556,7 +564,7 @@ footer .social a:hover {
   }
 
   nav .menu ul {
-    display: flex; /*ao lado do outro*/
+    display: flex;
     gap: 2rem;
   }
 
@@ -565,7 +573,7 @@ footer .social a:hover {
     -webkit-font-smoothing: antialiased;
   }
 
-  nav .menu ul li a.tilte.active {
+  nav .menu ul li a.title.active {
     font-weight: bold;
     -webkit-font-smoothing: auto;
   }
@@ -574,14 +582,12 @@ footer .social a:hover {
     display: none;
   }
 
+  /* layout */
   main {
     margin-top: var(--header-height);
   }
 
-  /* layout */
-
-  /*home */
-
+  /* home */
   #home .container {
     grid-auto-flow: column;
     justify-content: space-between;
@@ -589,14 +595,16 @@ footer .social a:hover {
   }
 
   #home .image {
-    order: 1; /* funciona so com grid/flex */
+    order: 1;
   }
 
   #home .text {
     order: 0;
     max-width: 24rem;
+    text-align: left;
   }
 
+  /* about */
   #about .container {
     margin: 0 auto;
     grid-auto-flow: column;
@@ -612,22 +620,23 @@ footer .social a:hover {
     padding-right: 3rem;
   }
 
-  /*testimonials */
+  /* testimonials */
   #testimonials .container {
     margin-left: auto;
     margin-right: auto;
   }
 
-  /*contact */
+  /* contact */
   #contact .container {
     grid-auto-flow: column;
     align-items: center;
   }
+
   #contact .text {
     max-width: 25rem;
   }
 
-  /*footer */
+  /* footer */
   footer.section {
     padding: 3.75rem 0;
   }
@@ -637,11 +646,11 @@ footer .social a:hover {
     align-items: center;
     justify-content: space-between;
   }
+
   footer .logo {
     font-size: 2.25rem;
   }
 }
-
 /* large devices: 1023 > */
 /* large devices: 992 > */
 @media (min-width: 992px) {

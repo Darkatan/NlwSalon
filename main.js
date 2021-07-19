@@ -20,6 +20,7 @@ for (const link of links) {
 /* mudar o header da página quando der scroll */
 const header = document.querySelector('#header')
 const navHeight = header.offsetHeight
+
 function changeHeaderWhenScroll() {
   if (window.scrollY >= navHeight) {
     // scroll é maior que a altura do header
@@ -50,7 +51,7 @@ const swiper = new Swiper('.swiper-container', {
 const scrollReveal = ScrollReveal({
   origin: 'top',
   distance: '30px',
-  duration: 1000,
+  duration: 700,
   reset: true
 })
 
@@ -59,14 +60,15 @@ scrollReveal.reveal(
   #about .image, #about .text,
   #services header, #services .card,
   #testimonials header, #testimonials .testimonials
-  #contact .text, #contact .links
+  #contact .text, #contact .links,
   footer .brand, footer .social
   `,
   { interval: 100 }
 )
 
-/* Back to top button */
+/* Botão voltar para o topo */
 const backToTopButton = document.querySelector('.back-to-top')
+
 function backToTop() {
   if (window.scrollY >= 560) {
     backToTopButton.classList.add('show')
@@ -75,14 +77,14 @@ function backToTop() {
   }
 }
 
-/* Menu ativo conforme a seção visível na pagina */
+/* Menu ativo conforme a seção visível na página */
 const sections = document.querySelectorAll('main section[id]')
 function activateMenuAtCurrentSection() {
   const checkpoint = window.pageYOffset + (window.innerHeight / 8) * 4
 
   for (const section of sections) {
-    const sectionTop = section.offsetTop //offset descoloca
-    const sectionHeight = sectionoffsetHeight
+    const sectionTop = section.offsetTop
+    const sectionHeight = section.offsetHeight
     const sectionId = section.getAttribute('id')
 
     const checkpointStart = checkpoint >= sectionTop
@@ -100,7 +102,7 @@ function activateMenuAtCurrentSection() {
   }
 }
 
-/*When scroll */
+/* When Scroll */
 window.addEventListener('scroll', function () {
   changeHeaderWhenScroll()
   backToTop()
